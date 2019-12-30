@@ -1,0 +1,58 @@
+{
+  "name": "react-webpack4-bootstrap4-boilerplate",
+  "version": "1.0.0",
+  "description": "This repo serves as a boilerplate for future projects that will be built with React and Webpack 4",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/server/server.js",
+    "lint": "eslint ./src",
+    "dev-build": "webpack-dev-server --config webpack.dev.config.js --hot",
+    "prod-build": "webpack --config webpack.production.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jlroman/React-Webpack4-Boilerplate.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jlroman/React-Webpack4-Boilerplate/issues"
+  },
+  "homepage": "https://github.com/jlroman/React-Webpack4-Boilerplate#readme",
+  "devDependencies": {
+    "@babel/core": "^7.7.7",
+    "@babel/preset-env": "^7.7.7",
+    "@babel/preset-react": "^7.7.4",
+    "autoprefixer": "^9.7.3",
+    "babel-eslint": "^10.0.3",
+    "babel-loader": "^8.0.6",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "clean-webpack-plugin": "^3.0.0",
+    "eslint": "^6.8.0",
+    "file-loader": "^5.0.2",
+    "handlebars-loader": "^1.7.1",
+    "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.9.0",
+    "postcss-loader": "^3.0.0",
+    "precss": "^4.0.0",
+    "terser-webpack-plugin": "^2.3.1",
+    "webpack": "^4.41.4",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.10.1",
+    "write-file-webpack-plugin": "^4.5.1"
+  },
+  "dependencies": {
+    "bootstrap": "^4.4.1",
+    "css-loader": "^3.4.0",
+    "express": "^4.17.1",
+    "handlebars": "^4.5.3",
+    "jquery": "^3.4.1",
+    "node-sass": "^4.13.0",
+    "popper.js": "^1.16.0",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "sass-loader": "^8.0.0",
+    "style-loader": "^1.1.1"
+  }
+}
