@@ -75,4 +75,9 @@ module.exports = {
       template: './src/index.hbs',
     }),
   ],
+  resolve: {
+    alias: {
+      Components: path.resolve(__dirname, 'src/components/'),
+    },
+  },
 };
