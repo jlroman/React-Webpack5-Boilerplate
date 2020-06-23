@@ -1,90 +1,34 @@
-const path = require('path');
+/* eslint-disable import/no-dynamic-require */
+const cwd = process.cwd();
+const common = require(`${cwd}/webpack.common.config.js`);
+const merge = require('webpack-merge');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WriteFilePlugin = require('write-file-webpack-plugin');
 
-module.exports = {
-  entry: {
-    index: './src/index.js',
-  },
+module.exports = merge(common, {
+  mode: 'development',
+
+  devtool: 'inline-source-map',
+
   output: {
     filename: '[name].bundle.js',
-    path: path.resolve(__dirname, './dist'),
-    publicPath: '',
+    path: `${cwd}/dist`,
+    publicPath: '/',
   },
-  mode: 'development',
+
   devServer: {
-    contentBase: path.resolve(__dirname, './dist'),
+    contentBase: `${cwd}/dist`,
     index: 'index.html',
-    port: 9000,
+    port: 3000,
   },
-  optimization: {
-    splitChunks: {
-      chunks: 'all',
-      automaticNameDelimiter: '_',
-    },
-  },
-  module: {
-    rules: [
-      {
-        test: /\.(png|jpg)$/,
-        use: ['file-loader'],
-      },
-      {
-        test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader'],
-      },
-      {
-        test: /\.scss$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          'css-loader',
-          {
-            loader: 'postcss-loader',
-            options: {
-              plugins: function () {
-                return [require('precss'), require('autoprefixer')];
-              },
-            },
-          },
-          'sass-loader',
-        ],
-      },
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['@babel/env', '@babel/preset-react'],
-            plugins: ['transform-class-properties'],
-          },
-        },
-      },
-      {
-        test: /\.hbs$/,
-        loader: 'handlebars-loader',
-      },
-    ],
-  },
+
   plugins: [
-    new WriteFilePlugin(),
-    new CleanWebpackPlugin(),
+    new WriteFilePlugin({
+      test: /^(?!.*(hot)).*/,
+    }),
+
     new MiniCssExtractPlugin({
       filename: '[name].style.css',
     }),
-    new HtmlWebpackPlugin({
-      filename: 'index.html',
-      chunks: ['index', 'vendors_index'],
-      title: 'Hello World',
-      description: 'Template for Projects Using React',
-      template: './src/index.hbs',
-    }),
   ],
-  resolve: {
-    alias: {
-      Components: path.resolve(__dirname, 'src/components/'),
-    },
-  },
-};
+});
