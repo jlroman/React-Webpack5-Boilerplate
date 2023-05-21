@@ -1,7 +1,7 @@
 /* eslint-disable import/no-dynamic-require */
 const cwd = process.cwd();
 const common = require(`${cwd}/webpack.common.config.js`);
-const merge = require('webpack-merge');
+const { merge } = require('webpack-merge');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const WriteFilePlugin = require('write-file-webpack-plugin');
 
@@ -17,8 +17,7 @@ module.exports = merge(common, {
   },
 
   devServer: {
-    contentBase: `${cwd}/dist`,
-    index: 'index.html',
+    static: `${cwd}/dist`,
     port: 3000,
   },
 

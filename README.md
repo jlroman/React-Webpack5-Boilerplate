@@ -1,3 +1,9 @@
+"terser-webpack-plugin": "^2.3.6"
+
+---
+
+"style-loader": "^1.2.1",
+
 # React-Webpack4-Boilerplate
 
 This repo serves as a boilerplate for future projects that will be built with React and Webpack 4
@@ -40,7 +46,7 @@ The plugin will generate an HTML5 file for you that includes all your webpack bu
 
 Link: https://webpack.js.org/plugins/html-webpack-plugin/
 
-#### MiniCssExtractPlugin
+#### WriteFileWebpackPlugin
 
 Forces webpack-dev-server program to write bundle files to the file system.
 

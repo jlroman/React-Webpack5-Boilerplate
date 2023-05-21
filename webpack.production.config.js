@@ -1,7 +1,10 @@
+/* eslint-disable import/no-dynamic-require */
 const cwd = process.cwd();
+const common = require(`${cwd}/webpack.common.config.js`);
+const { merge } = require('webpack-merge');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-module.exports = {
+module.exports = merge(common, {
   mode: 'production',
 
   output: {
@@ -15,4 +18,4 @@ module.exports = {
       filename: '[name].[contenthash].css',
     }),
   ],
-};
+});
