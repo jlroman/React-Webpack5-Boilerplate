@@ -1,4 +1,4 @@
-# React-Webpack4-Boilerplate
+# React-Webpack5-Boilerplate
 
 This repo serves as a boilerplate for future projects that will be built with React and Webpack 4
 
