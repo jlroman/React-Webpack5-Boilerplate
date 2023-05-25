@@ -1,9 +1,3 @@
-"terser-webpack-plugin": "^2.3.6"
-
----
-
-"style-loader": "^1.2.1",
-
 # React-Webpack4-Boilerplate
 
 This repo serves as a boilerplate for future projects that will be built with React and Webpack 4
